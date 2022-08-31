@@ -1,0 +1,4 @@
+.vagrant
+.idea
+Homestead.yaml
+.DS_Store

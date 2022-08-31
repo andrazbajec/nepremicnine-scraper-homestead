@@ -1,0 +1,38 @@
+---
+ip: "192.168.56.56"
+memory: 2048
+cpus: 2
+provider: virtualbox
+name: nepremicnine-scraper
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/Documents/projects/nepremicnine-scraper-api
+      to: /home/vagrant/api
+    - map: ~/Documents/projects/nepremicnine-scraper-react
+      to: /home/vagrant/web
+
+sites:
+    - map: api.scraper.com
+      to: /home/vagrant/api
+    - map: web.scraper.com
+      to: 3000
+      type: proxy
+
+databases:
+    - scraper
+
+features:
+    - mysql: true
+    - mariadb: false
+    - postgresql: false
+    - ohmyzsh: false
+    - webdriver: false
+
+services:
+    - enabled:
+          - "mysql"
